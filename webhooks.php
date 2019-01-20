@@ -9,14 +9,10 @@ $access_token = "v/afe7XjTUu/sLsIibylCT/DjF89Rq6gYXsGFw0y1Q1wey/mECGMwaesTsbdj2N
 $content = file_get_contents('php://input');
 $events = json_decode($content, true);
 
-error_log($events['events']);
-
 if (!is_null($events['events'])) {
 	foreach ($events['events'] as $event) {
 	
 		if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
-			
-			error_log($event['message']['text']);
 			$text = $event['message']['text'];
 			$replyToken = $event['replyToken'];
 			$messages = setText($text);

@@ -9,7 +9,7 @@ $access_token = "v/afe7XjTUu/sLsIibylCT/DjF89Rq6gYXsGFw0y1Q1wey/mECGMwaesTsbdj2N
 $content = file_get_contents('php://input');
 $events = json_decode($content, true);
 
-error_log($events['events']);
+// error_log($events['events']);
 
 if (!is_null($events['events'])) {
 	foreach ($events['events'] as $event) {

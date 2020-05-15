@@ -37,44 +37,27 @@ function setText( $text){
 }
 
 function setFlex(){
-	$message = '
-	{
+	$message = '{
 		"type": "flex",
-		"altText": "Flex Message",
+		"altText": "This is a Flex Message",
 		"contents": {
-		"type": "bubble",
-		"direction": "ltr",
-		"header": {
-		"type": "box",
-		"layout": "vertical",
-		"contents": [
-		{
-		"type": "text",
-		"text": "Header",
-		"align": "center"
+		  "type": "bubble",
+		  "body": {
+			"type": "box",
+			"layout": "horizontal",
+			"contents": [
+			  {
+				"type": "text",
+				"text": "Hello,"
+			  },
+			  {
+				"type": "text",
+				"text": "World!"
+			  }
+			]
+		  }
 		}
-		]
-		},
-		"hero": {
-		"type": "image",
-		"url": "https://developers.line.biz/assets/images/services/bot-designer-icon.png",
-		"size": "full",
-		"aspectRatio": "1.51:1",
-		"aspectMode": "fit"
-		},
-		"body": {
-		"type": "box",
-		"layout": "vertical",
-		"contents": [
-		{
-		"type": "text",
-		"text": "Body",
-		"align": "center"
-		}
-		]
-		}
-		}
-	}';
+	  }';
 	return $message;
 }
 

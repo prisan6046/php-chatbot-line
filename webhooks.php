@@ -20,8 +20,8 @@ if (!is_null($events['events'])) {
 			$replyToken = $event['replyToken'];
 			## เปิดสำหรับใช้่งาน mysql message
 			// $text = searchMessage($text ,$conn);
-			$messages = setText($text);
-			// $messages = setFlex();
+			// $messages = setText($text);
+			$messages = setFlex();
 			sentToLine( $replyToken , $access_token  , $messages );
 		}
 	}

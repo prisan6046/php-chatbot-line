@@ -96,10 +96,15 @@ function searchMessage($text , $conn){
 function sentToLine($replyToken , $access_token  , $messages ){
 	error_log("send");
 	$url = 'https://api.line.me/v2/bot/message/reply';
-	$data = [
-		'replyToken' => $replyToken,
-		'messages' => [$messages],
-	];
+	// $data = [
+	// 	'replyToken' => $replyToken,
+	// 	'messages' => [$messages],
+	// ];
+
+	$data = '{
+		"replyToken" : '. $replyToken .' ,
+		"messages" : ['. $messages .']
+	}';
 	$post = json_encode($data);
 
 	error_log($post);

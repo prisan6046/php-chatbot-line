@@ -102,7 +102,7 @@ function sentToLine($replyToken , $access_token  , $messages ){
 	// ];
 
 	$data = '{
-		"replyToken" : '. $replyToken .' ,
+		"replyToken" : "'. $replyToken .'" ,
 		"messages" : ['. $messages .']
 	}';
 	$post = json_encode($data);

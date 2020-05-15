@@ -21,11 +21,14 @@ if (!is_null($events['events'])) {
 			$replyToken = $event['replyToken'];
 			## เปิดสำหรับใช้่งาน mysql message
 			// $text = searchMessage($text ,$conn);
-			$messages = setText($text);
+			// $messages = setText($text);
+			$messages = setFlex();
 			sentToLine( $replyToken , $access_token  , $messages );
 		}
 	}
 }
+
+
 
 function setText( $text){
 	$messages = [
@@ -33,6 +36,48 @@ function setText( $text){
 		'text' => $text
 	];
 	return $messages;
+}
+
+function setFlex(){
+	$message = '
+	{
+		"type": "flex",
+		"altText": "Flex Message",
+		"contents": {
+		"type": "bubble",
+		"direction": "ltr",
+		"header": {
+		"type": "box",
+		"layout": "vertical",
+		"contents": [
+		{
+		"type": "text",
+		"text": "Header",
+		"align": "center"
+		}
+		]
+		},
+		"hero": {
+		"type": "image",
+		"url": "https://developers.line.biz/assets/images/services/bot-designer-icon.png",
+		"size": "full",
+		"aspectRatio": "1.51:1",
+		"aspectMode": "fit"
+		},
+		"body": {
+		"type": "box",
+		"layout": "vertical",
+		"contents": [
+		{
+		"type": "text",
+		"text": "Body",
+		"align": "center"
+		}
+		]
+		}
+		}
+	}';
+	return $message;
 }
 
 function searchMessage($text , $conn){
@@ -68,3 +113,5 @@ function sentToLine($replyToken , $access_token  , $messages ){
 	curl_close($ch);
 	echo $result . "\r\n";
 }
+
+

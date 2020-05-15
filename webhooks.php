@@ -39,20 +39,36 @@ function setText( $text){
 function setFlex(){
 	$message = '{
 		"type": "flex",
-		"altText": "This is a Flex Message",
+		"altText": "Flex Message",
 		"contents": {
 		  "type": "bubble",
-		  "body": {
+		  "direction": "ltr",
+		  "header": {
 			"type": "box",
-			"layout": "horizontal",
+			"layout": "vertical",
 			"contents": [
 			  {
 				"type": "text",
-				"text": "Hello,"
-			  },
+				"text": "Header",
+				"align": "center"
+			  }
+			]
+		  },
+		  "hero": {
+			"type": "image",
+			"url": "https://developers.line.biz/assets/images/services/bot-designer-icon.png",
+			"size": "full",
+			"aspectRatio": "1.51:1",
+			"aspectMode": "fit"
+		  },
+		  "body": {
+			"type": "box",
+			"layout": "vertical",
+			"contents": [
 			  {
 				"type": "text",
-				"text": "World!"
+				"text": "Body",
+				"align": "center"
 			  }
 			]
 		  }

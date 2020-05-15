@@ -9,7 +9,6 @@ $access_token = "v/afe7XjTUu/sLsIibylCT/DjF89Rq6gYXsGFw0y1Q1wey/mECGMwaesTsbdj2N
 $content = file_get_contents('php://input');
 $events = json_decode($content, true);
 
-// error_log($events['events']);
 
 if (!is_null($events['events'])) {
 	foreach ($events['events'] as $event) {
@@ -21,13 +20,12 @@ if (!is_null($events['events'])) {
 			$replyToken = $event['replyToken'];
 			## เปิดสำหรับใช้่งาน mysql message
 			// $text = searchMessage($text ,$conn);
-			$messsssages = setText($text);
+			$messages = setText($text);
 			// $messages = setFlex();
 			sentToLine( $replyToken , $access_token  , $messages );
 		}
 	}
 }
-
 
 
 function setText( $text){
@@ -96,6 +94,7 @@ function searchMessage($text , $conn){
 }
 
 function sentToLine($replyToken , $access_token  , $messages ){
+	error_log("send");
 	$url = 'https://api.line.me/v2/bot/message/reply';
 	$data = [
 		'replyToken' => $replyToken,
@@ -112,6 +111,7 @@ function sentToLine($replyToken , $access_token  , $messages ){
 	$result = curl_exec($ch);
 	curl_close($ch);
 	echo $result . "\r\n";
+	error_log("send ok");
 }
 
 

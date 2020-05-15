@@ -88,7 +88,7 @@ function sentToLine($replyToken , $access_token  , $messages ){
 		"replyToken" : "'. $replyToken .'" ,
 		"messages" : ['. $messages .']
 	}';
-	$post = json_encode($data);
+	$post = $data;
 
 	error_log($post);
 	$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);

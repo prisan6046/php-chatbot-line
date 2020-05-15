@@ -111,6 +111,7 @@ function sentToLine($replyToken , $access_token  , $messages ){
 	$result = curl_exec($ch);
 	curl_close($ch);
 	echo $result . "\r\n";
+	error_log($result);
 	error_log("send ok");
 }
 

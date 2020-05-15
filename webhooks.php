@@ -101,6 +101,8 @@ function sentToLine($replyToken , $access_token  , $messages ){
 		'messages' => [$messages],
 	];
 	$post = json_encode($data);
+
+	error_log($post);
 	$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
 	$ch = curl_init($url);
 	curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
